@@ -65,7 +65,7 @@ df = pd.DataFrame(worksheet.get_all_records())
 # --------------------------
 # STREAMLIT INTERFACE
 # --------------------------
-st.set_page_config(page_title="Leitura Google Sheets", layout="Wide")
+st.set_page_config(page_title="Leitura Google Sheets", layout="wide")
 st.title("📄 Dados da Aba 'diario'")
 
 # --------------------------
