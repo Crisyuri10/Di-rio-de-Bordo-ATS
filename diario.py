@@ -21,7 +21,6 @@ def conectar_google():
             ]
         )
         client = gspread.authorize(creds)
-        st.info("🔗 Conectado via CLOUD (secrets)")
         return client
 
     except Exception:
@@ -37,8 +36,8 @@ def conectar_google():
             ]
         )
         client = gspread.authorize(creds)
-        st.info("💻 Conectado via cred.json (LOCAL)")
         return client
+
     except Exception as e:
         st.error("❌ Erro ao conectar no Google:")
         st.error(str(e))
@@ -61,9 +60,8 @@ worksheet = sheet.worksheet("diario")
 
 df = pd.DataFrame(worksheet.get_all_records())
 
-
 # --------------------------
-# STREAMLIT INTERFACE
+# INTERFACE
 # --------------------------
 st.set_page_config(page_title="Leitura Google Sheets", layout="wide")
 st.title("📋 Diário de Bordo | ATS")
@@ -102,6 +100,9 @@ with st.form("form_diario"):
         worksheet.update_cell(linha_idx, col_atraso, motivo_atraso)
 
         st.success("Registro atualizado com sucesso!")
+
+        # 🔄 REFRESH AUTOMÁTICO
+        st.rerun()
 
 # --------------------------
 # TABELA
