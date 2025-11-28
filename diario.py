@@ -88,9 +88,9 @@ with st.form("form_diario"):
 
         # Colunas por turno
         col_map = {
-            "T1": {"hc": "Qtde HC T1", "atr": "Atraso T1?"},
-            "T2": {"hc": "Qtde HC T2", "atr": "Atraso T2?"},
-            "T3": {"hc": "Qtde HC T3", "atr": "Atraso T3?"}
+            "T1": {"hc": "Qtde HCs T1", "atr": "Atraso T1?"},
+            "T2": {"hc": "Qtde HCs T2", "atr": "Atraso T2?"},
+            "T3": {"hc": "Qtde HCs T3", "atr": "Atraso T3?"}
         }
 
         col_hc = df.columns.get_loc(col_map[turno]["hc"]) + 1
